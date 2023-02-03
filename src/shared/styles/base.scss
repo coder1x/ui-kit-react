@@ -1,0 +1,120 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-size: #{$font-size}px;
+  font-family: $font;
+  font-weight: normal;
+  min-width: $min-wrapper;
+
+  @include media-breakpoint-down($xs) {
+    font-size: 13px;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+  background: $color-background;
+  color: $color-grey;
+  text-rendering: optimizeSpeed;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-title;
+  color: $color-dark-grey;
+  font-weight: normal;
+}
+
+h1 {
+  @include font-rem(24);
+  line-height: 29px;
+}
+
+h2 {
+  @include font-rem(19);
+  line-height: 23px;
+}
+
+h3 {
+  @include font-rem(16);
+  line-height: 15px;
+}
+
+img {
+  height: auto;
+}
+
+ul,
+ol {
+  text-indent: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $color-dark-grey;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+::-webkit-scrollbar-button {
+  background-repeat: no-repeat;
+  width: 5px;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $color-dark-grey;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: $color-grey-light;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #c4c4c4;
+}
+
+::-webkit-resizer {
+  background-repeat: no-repeat;
+  width: 4px;
+  height: 0;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
