@@ -1,6 +1,9 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
+const dotenv = require('dotenv')
+dotenv.config();
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const ESLintPlugin = require('eslint-webpack-plugin');
@@ -152,6 +155,16 @@ plugins.push(
   new MiniCssExtractPlugin({
     filename: FL.filename('css'),
   }),
+);
+
+plugins.push(
+  new webpack.ProvidePlugin({
+    process: 'process/browser',
+  })
+);
+
+plugins.push(
+  new webpack.EnvironmentPlugin(['URL_API'])
 );
 
 module.exports = {
