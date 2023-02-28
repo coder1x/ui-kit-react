@@ -5,7 +5,7 @@ function Main() {
   return (
     <>
       <Header />
-      <main className="index-content">Тело</main>
+      <main className="content">Тело</main>
       <Footer />
     </>
   );
