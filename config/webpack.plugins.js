@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fs = require('fs');
@@ -161,13 +160,6 @@ plugins.push(
 );
 
 plugins.push(new webpack.EnvironmentPlugin(['URL_API']));
-
-plugins.push(
-  new StylelintWebpackPlugin({
-    configFile: path.join(__dirname, '../.stylelintrc.js'),
-    files: path.join(paths.src, '/**/*.scss'),
-  })
-);
 
 module.exports = {
   plugins: plugins,
