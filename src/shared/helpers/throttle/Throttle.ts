@@ -21,7 +21,7 @@ class Throttle {
     this.action = action;
     this.customEvent = 'EventThrottleCustom';
     this.sleep = sleep;
-    this.onChange = onChange ?? (() => { });
+    this.onChange = onChange ?? (() => {});
     this.optimized();
   }
 

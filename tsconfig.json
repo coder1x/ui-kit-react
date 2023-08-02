@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "lib": [
-      "dom",
-      "es6",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "es6", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "sourceMap": false,
     "allowJs": false,
@@ -26,19 +21,17 @@
     "noEmit": false,
     "noImplicitAny": true,
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@shared/*": [
-        "src/shared/*"
-      ],
-      "@helpers/*": [
-        "src/shared/helpers/*"
-      ],
+      "@components/*": ["src/components/*"],
+      "@shared/*": ["src/shared/*"],
+      "@helpers/*": ["src/shared/helpers/*"],
+      "@hooks/*": ["src/shared/hooks/*"],
+      "@appRoutes/*": ["src/appRoutes/*"],
+      "@styles/*": ["src/shared/styles/*"],
+      "@pages/*": ["src/pages/*"],
+      "@store/*": ["src/store/*"],
+      "@api/*": ["src/api/*"]
     },
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

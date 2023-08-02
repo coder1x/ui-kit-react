@@ -5,32 +5,33 @@ $size-padding: 20px;
 $min-size-padding: 10px;
 
 $xxs: 320px;
-$xs_middle: 419px;
+$xs_middle: 447px;
 $xs: 575px;
-$sm_middle: 612px;
+$sm_middle: 671px;
 $sm: 767px;
-$md_middle: 867px;
+$md_middle: 879px;
 $md: 991px;
-$lg_middle: 1099px;
+$lg_middle: 1095px;
 $lg: 1199px;
-$xl_middle: 1299px;
+$xl_middle: 1319px;
 $xl: 1440px;
+$xxl_middle: 1680px;
 $xxl: 1920px;
 
 //----------- COLORS -------------
 $background-section: #fcfcfc;
-$color-dark-grey: #252525;
-$color-dark-grey-hover: #545454;
-$color-grey: #555;
-$color-grey-light: #e1e1e1;
-$color-background: #edeef0;
+$dark-grey: #252525;
+$dark-grey-hover: #545454;
+$grey: #555;
+$grey-light: #e1e1e1;
+$background: #edeef0;
 
-$color-white: #fff;
-$color-black: #000;
+$white: #fff;
+$black: #000;
 //------------- FONTS ------------
 
 $font: verdana, arial, sans-serif;
-$font-title: "arial black", "britannic bold", "impact";
+$font-title: 'arial black', 'britannic bold', 'impact';
 $font-code: consolas, monospace;
 $font-quote: sans-serif, arial, verdana;
 

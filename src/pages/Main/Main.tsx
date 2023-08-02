@@ -1,14 +1,12 @@
-import Header from '@components/header/Header';
-import Footer from '@components/footer/Footer';
+import { FC } from 'react';
+import { useRoutes } from 'react-router-dom';
+import appRoutes from '@appRoutes/appRoutes';
+import Layout from '@pages/layout/Layout';
 
-function Main() {
-  return (
-    <>
-      <Header />
-      <main className="content">Тело</main>
-      <Footer />
-    </>
-  );
-}
+const Main: FC = () => {
+  const routes = useRoutes(appRoutes);
+
+  return <Layout>{routes}</Layout>;
+};
 
 export default Main;

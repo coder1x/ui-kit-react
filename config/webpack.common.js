@@ -16,7 +16,6 @@ if (env.isDev) {
 points.push('./index.ts');
 
 module.exports = merge(devServer, {
-
   target: 'web',
   devtool: env.isDev ? 'source-map' : false,
 
@@ -34,11 +33,15 @@ module.exports = merge(devServer, {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
     alias: {
+      '@hooks': path.join(paths.src, 'shared', 'hooks'),
+      '@appRoutes': path.join(paths.src, 'appRoutes'),
       '@styles': path.join(paths.src, 'shared', 'styles'),
       '@helpers': path.join(paths.src, 'shared', 'helpers'),
       '@pages': path.join(paths.src, 'pages'),
       '@components': path.join(paths.src, 'components'),
       '@shared': path.join(paths.src, 'shared'),
+      '@store': path.join(paths.src, 'store'),
+      '@api': path.join(paths.src, 'api'),
       '@': paths.src,
       comp: paths.components,
     },

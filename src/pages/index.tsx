@@ -1,10 +1,16 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
-import Main from './Main/Main';
+import { BrowserRouter } from 'react-router-dom';
+import Main from './main/Main';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>
-);
+const root = document.getElementById('root');
+
+if (root) {
+  ReactDOM.createRoot(root).render(
+    <StrictMode>
+      <BrowserRouter>
+        <Main />
+      </BrowserRouter>
+    </StrictMode>
+  );
+}

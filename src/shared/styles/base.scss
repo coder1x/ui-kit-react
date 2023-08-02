@@ -13,20 +13,26 @@ html {
 
 body {
   display: flex;
-  flex-direction: column;
   width: 100%;
   min-height: 100%;
   margin: 0;
   padding: 0;
-  color: $color-grey;
-  background: $color-background;
+  color: $grey;
+  background: $background;
   text-rendering: optimizespeed;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
 }
 
 h1,
 h2,
 h3 {
-  color: $color-dark-grey;
+  color: $dark-grey;
   font-weight: normal;
   font-family: $font-title;
 }
@@ -62,7 +68,7 @@ ol {
 }
 
 a {
-  color: $color-dark-grey;
+  color: $dark-grey;
   text-decoration: none;
 }
 
@@ -74,8 +80,8 @@ p {
 }
 
 .visually-hidden:not(:focus, :active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
+input[type='checkbox'].visually-hidden,
+input[type='radio'].visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -99,11 +105,11 @@ input[type="radio"].visually-hidden {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: $color-dark-grey;
+  background-color: $dark-grey;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $color-grey-light;
+  background-color: $grey-light;
   border-radius: 0;
 }
 
