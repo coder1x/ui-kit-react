@@ -8,15 +8,17 @@
     "start": "cross-env NODE_ENV=development webpack serve --mode development",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
+    "format": "prettier --write src/**/*.{ts,tsx} --config ./.prettierrc.json",
+    "prepare": "husky install",
     "test": "jest"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*.scss": "stylelint --fix"
+    "src/**/*.scss": [
+      "npm run stylelint:fix"
+    ],
+    "src/**/*.{ts,tsx}": [
+      "npm run format"
+    ]
   },
   "author": "coder1 <c.o.d.e.r.1@mail.ru>",
   "license": "MIT",
@@ -42,7 +44,7 @@
     "eslint-webpack-plugin": "^3.1.1",
     "favicons": "^6.2.2",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "jest": "^27.5.1",
     "lint-staged": "^13.2.3",
     "mini-css-extract-plugin": "^2.6.0",

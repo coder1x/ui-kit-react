@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 const Demo: FC = () => {
-  return <>{'Demo'}</>;
+  return <>{' - Demo - '}</>;
 };
 
 export default Demo;
