@@ -1,11 +1,11 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 dotenv.config();
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fs = require('fs');
@@ -22,7 +22,6 @@ const pagesDir = path.join(__dirname, '../public/');
 const pages = fs.readdirSync(pagesDir).map((file) => {
   return file.split('/', 2);
 });
-
 
 // ---- HEAD
 const DESCRIPTION = 'Описание страницы (заглушка)';
@@ -44,72 +43,73 @@ if (env.isDev) {
   plugins.push(
     new ESLintPlugin({
       extensions: ['js', 'ts'],
-    }));
+    })
+  );
 }
 
-plugins.push(
-  new CleanWebpackPlugin()
-);
+plugins.push(new CleanWebpackPlugin());
 
 plugins.push(
-  ...pages.map((fileName) => new HTMLWebpackPlugin({
-    filename: `./index.html`,
-    template: `${pagesDir}${fileName}`,
-    alwaysWriteToDisk: true,
-    inject: 'body',
-    hash: true,
-    meta: {
-      viewport: {
-        name: 'viewport',
-        content:
-          'width=device-width, initial-scale=1',
-      },
-      description: {
-        name: 'description',
-        content: DESCRIPTION,
-      },
-      keywords: {
-        name: 'keywords',
-        content: KEYWORDS,
-      },
-      'twitter-card': {
-        name: 'twitter:card',
-        content: 'summary_large_image',
-      },
-      'twitter-title': {
-        name: 'twitter:title',
-        content: TITLE,
-      },
-      'twitter-description': {
-        name: 'twitter:description',
-        content: DESCRIPTION,
-      },
-      'twitter-site': {
-        name: 'twitter:site',
-        content: SITE_URL,
-      },
-      'twitter-image': {
-        name: 'twitter:image',
-        content: SOCIAL_LOGO_URL,
-      },
-      'og-type': {
-        property: 'og:type',
-        content: 'blog',
-      },
-      'og-title': {
-        property: 'og:title',
-        content: TITLE,
-      },
-      'og-description': {
-        property: 'og:description',
-        content: DESCRIPTION,
-      },
-      'og-image': {
-        property: 'og:image',
-        content: SOCIAL_LOGO_URL,
-      },
-    },
-  })),
+  ...pages.map(
+    (fileName) =>
+      new HTMLWebpackPlugin({
+        filename: `./index.html`,
+        template: `${pagesDir}${fileName}`,
+        alwaysWriteToDisk: true,
+        inject: 'body',
+        hash: true,
+        meta: {
+          viewport: {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1',
+          },
+          description: {
+            name: 'description',
+            content: DESCRIPTION,
+          },
+          keywords: {
+            name: 'keywords',
+            content: KEYWORDS,
+          },
+          'twitter-card': {
+            name: 'twitter:card',
+            content: 'summary_large_image',
+          },
+          'twitter-title': {
+            name: 'twitter:title',
+            content: TITLE,
+          },
+          'twitter-description': {
+            name: 'twitter:description',
+            content: DESCRIPTION,
+          },
+          'twitter-site': {
+            name: 'twitter:site',
+            content: SITE_URL,
+          },
+          'twitter-image': {
+            name: 'twitter:image',
+            content: SOCIAL_LOGO_URL,
+          },
+          'og-type': {
+            property: 'og:type',
+            content: 'blog',
+          },
+          'og-title': {
+            property: 'og:title',
+            content: TITLE,
+          },
+          'og-description': {
+            property: 'og:description',
+            content: DESCRIPTION,
+          },
+          'og-image': {
+            property: 'og:image',
+            content: SOCIAL_LOGO_URL,
+          },
+        },
+      })
+  )
 );
 
 plugins.push(
@@ -139,22 +139,19 @@ plugins.push(
       appleStartup: [],
       coast: true, // Create Opera Coast icon. `boolean`
       favicons: true, // Create regular favicons. `boolean`
-      firefox: [
-        'firefox_app_60x60.png',
-        'firefox_app_128x128.png',
-      ],
+      firefox: ['firefox_app_60x60.png', 'firefox_app_128x128.png'],
       opengraph: true, // Create Facebook OpenGraph image. `boolean`
       twitter: true, // Create Twitter Summary Card image. `boolean`
       windows: true, // Create Windows 8 tile icons. `boolean`
       yandex: true, // Create Yandex browser icon. `boolean`
     },
-  }),
+  })
 );
 
 plugins.push(
   new MiniCssExtractPlugin({
     filename: FL.filename('css'),
-  }),
+  })
 );
 
 plugins.push(
@@ -163,8 +160,13 @@ plugins.push(
   })
 );
 
+plugins.push(new webpack.EnvironmentPlugin(['URL_API']));
+
 plugins.push(
-  new webpack.EnvironmentPlugin(['URL_API'])
+  new StylelintWebpackPlugin({
+    configFile: path.join(__dirname, '../.stylelintrc.js'),
+    files: path.join(paths.src, '/**/*.scss'),
+  })
 );
 
 module.exports = {

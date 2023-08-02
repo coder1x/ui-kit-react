@@ -10,6 +10,14 @@
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
     "test": "jest"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.scss": "stylelint --fix"
+  },
   "author": "coder1 <c.o.d.e.r.1@mail.ru>",
   "license": "MIT",
   "devDependencies": {
@@ -34,7 +42,9 @@
     "eslint-webpack-plugin": "^3.1.1",
     "favicons": "^6.2.2",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.3",
     "jest": "^27.5.1",
+    "lint-staged": "^13.2.3",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.8.3",
@@ -50,6 +60,7 @@
     "stylelint-order": "^6.0.1",
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.3.0",
+    "stylelint-webpack-plugin": "^4.1.1",
     "terser-webpack-plugin": "^5.3.1",
     "ts-jest": "^27.1.4",
     "ts-loader": "^9.2.8",
