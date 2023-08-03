@@ -10,7 +10,9 @@
     "stylelint:fix": "stylelint \"src/**/*.scss\" --fix",
     "format": "prettier --write src/**/*.{ts,tsx} --config ./.prettierrc.json",
     "prepare": "husky install",
-    "test": "jest"
+    "test": "jest",
+    "sb": "storybook dev -p 6006",
+    "build-sb": "storybook build"
   },
   "lint-staged": {
     "src/**/*.scss": [
@@ -23,12 +25,22 @@
   "author": "coder1 <c.o.d.e.r.1@mail.ru>",
   "license": "MIT",
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.2.0",
+    "@storybook/addon-interactions": "^7.2.0",
+    "@storybook/addon-links": "^7.2.0",
+    "@storybook/blocks": "^7.2.0",
+    "@storybook/preset-create-react-app": "^7.0.26",
+    "@storybook/react": "^7.2.0",
+    "@storybook/react-webpack5": "^7.2.0",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@types/jest": "^27.5.2",
     "@types/webpack-env": "^1.16.4",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "@webdiscus/pug-loader": "^2.0.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "autoprefixer": "^10.4.5",
+    "babel-plugin-named-exports-order": "^0.0.2",
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
@@ -41,6 +53,7 @@
     "eslint-plugin-jest": "^26.1.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-storybook": "^0.6.13",
     "eslint-webpack-plugin": "^3.1.1",
     "favicons": "^6.2.2",
     "html-webpack-plugin": "^5.5.0",
@@ -50,11 +63,13 @@
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.8.3",
+    "prop-types": "^15.8.1",
     "pug": "^3.0.2",
     "react-test-renderer": "^18.2.0",
     "sass": "^1.51.0",
     "sass-loader": "^12.6.0",
     "sass-resources-loader": "^2.2.5",
+    "storybook": "^7.2.0",
     "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-rational-order": "^0.1.2",
@@ -97,5 +112,10 @@
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
     "redux-saga": "^1.2.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
