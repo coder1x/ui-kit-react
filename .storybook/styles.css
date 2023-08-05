@@ -1,0 +1,11 @@
+.docs-story * {
+    z-index: 1;
+}
+
+.docs-story picture {
+    z-index: 0;
+}
+
+.sbdocs .sbdocs-content {
+    max-width: 100%;
+}

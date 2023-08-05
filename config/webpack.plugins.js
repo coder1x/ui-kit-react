@@ -23,16 +23,16 @@ const pages = fs.readdirSync(pagesDir).map((file) => {
 });
 
 // ---- HEAD
-const DESCRIPTION = 'Описание страницы (заглушка)';
-const KEYWORDS = 'Java Script, Type Script, WebPack, SCSS, PUG';
-const TITLE = 'Загаловок проекта';
+const DESCRIPTION = 'Сборник авторских компонентов на React';
+const KEYWORDS = 'Java Script, Type Script, WebPack, React, StoryBook';
+const TITLE = 'UI-KIT-React';
 const SOCIAL_LOGO_URL = 'https://frontendx.ru/social.webp';
 const SITE_URL = 'https://frontendx.ru/';
 
 // ---- Favicon
-const APP_NAME = 'Полное название проекта';
-const APP_SHORT_NAME = 'Короткое название';
-const APP_DESCRIPTION = 'Описание проекта';
+const APP_NAME = 'UI-KIT-React';
+const APP_SHORT_NAME = 'Компоненты ны React';
+const APP_DESCRIPTION = 'Сборник авторских компонентов на React';
 const DEVELOPER_NAME = 'coder1';
 const DEVELOPER_URL = 'https://github.com/coder1x/';
 

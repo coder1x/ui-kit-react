@@ -26,7 +26,8 @@ module.exports = {
                 'cssnano',
                 {
                   preset: [
-                    'default', {
+                    'default',
+                    {
                       discardComments: {
                         removeAll: true,
                       },
@@ -46,9 +47,10 @@ module.exports = {
         loader: 'sass-resources-loader',
         options: {
           resources: [
+            path.join(paths.src, 'shared/styles/functions.scss'),
             path.join(paths.src, 'shared/styles/variables.scss'),
             path.join(paths.src, 'shared/styles/mixins.scss'),
-          ]
+          ],
         },
       });
     }

@@ -1,0 +1,45 @@
+.tab {
+  $root: &;
+
+  position: relative;
+  display: inline-block;
+  color: $grey;
+  font-family: $font;
+  transition: color 0.3s;
+  @include font-rem(20);
+  @include smooth-offset(margin-bottom, 40, 40, 40, 40, 50);
+  @include smooth-offset(margin-right, 53, 39, 30, 30, 60);
+
+  &:focus {
+    outline-color: $dark-grey-hover;
+    outline-offset: 6px;
+  }
+
+  @include media-breakpoint-down('md') {
+    @include font-rem(30);
+  }
+
+  @include media-breakpoint-down('sm') {
+    margin-top: 20px;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &_current {
+    color: $navyBlue;
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 4px;
+      background-color: $navyBlue;
+      content: '';
+    }
+  }
+}

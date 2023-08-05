@@ -1,6 +1,5 @@
 import { FC, ReactNode } from 'react';
-import Header from '@components/common/header/Header';
-import Footer from '@components/common/footer/Footer';
+import { Header, Footer } from '@components/common';
 import './layout.scss';
 
 type Props = {

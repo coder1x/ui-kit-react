@@ -1,0 +1,8 @@
+.tabs-spoiler-details {
+  @include section-offset;
+
+  &__title {
+    @include sides-offset;
+    @include smooth-offset(padding-bottom, 20, 40, 60, 80, 100);
+  }
+}

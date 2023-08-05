@@ -14,5 +14,5 @@ function requireAll(requireContext: RequireContext) {
   return requireContext.keys().map(requireContext);
 }
 
-requireAll(require.context('./components/', true, /^\.\/(?!.*((?:__tests__)|(?:\.d))).*\.(scss)$/));
-requireAll(require.context('./pages/', true, /^\.\/(?!.*((?:__tests__)|(?:\.d))).*\.(scss)$/));
+requireAll(require.context('./components/', true, /^\.\/(?!.*((?:__tests__)|(?:\.d))).*\.(css)$/));
+requireAll(require.context('./pages/', true, /^\.\/(?!.*((?:__tests__)|(?:\.d))).*\.(css)$/));

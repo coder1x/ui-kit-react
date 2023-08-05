@@ -1,9 +1,10 @@
 import { FC } from 'react';
+import './header.scss';
 
 const Header: FC = () => {
   return (
     <header className="header">
-      <p>Шапка сайта</p>
+      <p className="header__logo">UI-KIT-React</p>
     </header>
   );
 };

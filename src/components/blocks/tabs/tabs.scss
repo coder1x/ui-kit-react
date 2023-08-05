@@ -1,0 +1,66 @@
+.tabs {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  @include smooth-offset(padding-top, 34, 34, 34, 34, 40);
+
+  &__navigation {
+    display: flex;
+    flex-direction: row;
+    @include sides-offset;
+
+    @include media-breakpoint-down('sm') {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    border-top: 1px solid $grey2;
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+    @include sides-offset;
+
+    &-title {
+      @include smooth-offset(padding-top, 48, 70, 63, 75, 63);
+      @include smooth-offset(padding-bottom, 40, 50, 56, 60, 80);
+
+      line-height: 100%;
+      letter-spacing: -1.28px;
+      border-bottom: 1px solid $grey2;
+    }
+
+    &_current {
+      position: static;
+      z-index: 1;
+      opacity: 1;
+    }
+
+    &_current-animation {
+      position: static;
+      z-index: 1;
+      animation-name: tabs-animation;
+      animation-duration: 0.8s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes tabs-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

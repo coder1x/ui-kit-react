@@ -1,3 +1,9 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 html {
   width: 100%;
   min-width: $min-wrapper;
@@ -6,8 +12,28 @@ html {
   font-size: #{$font-size}px;
   font-family: $font;
 
-  @include media-breakpoint-down($xs) {
-    font-size: 13px;
+  @include media-breakpoint-down("xl") {
+    font-size: 14px;
+  }
+
+  @include media-breakpoint-down("lg") {
+    font-size: 12px;
+  }
+
+  @include media-breakpoint-down("md") {
+    font-size: 10px;
+  }
+
+  @include media-breakpoint-down("sm") {
+    font-size: 8px;
+  }
+
+  @include media-breakpoint-down("xs") {
+    font-size: 6px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
   }
 }
 
@@ -18,8 +44,8 @@ body {
   margin: 0;
   padding: 0;
   color: $grey;
-  background: $background;
   text-rendering: optimizespeed;
+  // -webkit-tap-highlight-color: transparent;
 }
 
 #root {
@@ -35,24 +61,20 @@ h3 {
   color: $dark-grey;
   font-weight: normal;
   font-family: $font-title;
+  line-height: 100%;
+  letter-spacing: -1.28px;
 }
 
 h1 {
-  @include font-rem(24);
-
-  line-height: 29px;
+  @include font-rem(64);
 }
 
 h2 {
-  @include font-rem(19);
-
-  line-height: 23px;
+  @include font-rem(50);
 }
 
 h3 {
-  @include font-rem(16);
-
-  line-height: 15px;
+  @include font-rem(36);
 }
 
 img {
@@ -79,9 +101,16 @@ p {
   margin: 0;
 }
 
+button {
+  background-color: transparent;
+  border: 0px;
+  padding: 0px;
+  cursor: pointer;
+}
+
 .visually-hidden:not(:focus, :active),
-input[type='checkbox'].visually-hidden,
-input[type='radio'].visually-hidden {
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
