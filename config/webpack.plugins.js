@@ -1,6 +1,5 @@
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -159,7 +158,13 @@ plugins.push(
   })
 );
 
-plugins.push(new webpack.EnvironmentPlugin(['URL_API']));
+const envFile = path.join(__dirname, '../.env');
+
+fs.access(envFile, (error) => {
+  if (!error) {
+    plugins.push(new webpack.EnvironmentPlugin(['URL_API']));
+  }
+});
 
 module.exports = {
   plugins: plugins,
