@@ -1,6 +1,4 @@
-import Throttle from '@helpers/throttle/Throttle';
+import Throttle from './Throttle';
+import animationDetails from './animationDetails';
 
-export {
-  // eslint-disable-next-line import/prefer-default-export
-  Throttle,
-};
+export { Throttle, animationDetails };

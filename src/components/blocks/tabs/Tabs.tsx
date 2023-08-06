@@ -1,5 +1,6 @@
 import { FC, useState, MouseEvent } from 'react';
 import { Tab, SpoilerDetails } from '@components/ui';
+import { animationDetails } from '@helpers/index';
 import './tabs.scss';
 
 export type Props = {
@@ -26,6 +27,10 @@ const Tabs: FC<Props> = ({ tabs, isAnimation, activeTab = 0 }) => {
     if (index) setCurrentTab(Number(index) ?? currentTab);
   };
 
+  const clickContainer = (event: MouseEvent<HTMLDivElement>) => {
+    animationDetails(isAnimation)(event);
+  };
+
   return (
     <div className="tabs">
       <div className="tabs__navigation" onClick={clickTab}>
@@ -40,7 +45,11 @@ const Tabs: FC<Props> = ({ tabs, isAnimation, activeTab = 0 }) => {
             const isShown = index === currentTab;
 
             return (
-              <div key={index} className={`tabs__container${isShown ? classNameContainer : ''}`}>
+              <div
+                key={index}
+                onClick={clickContainer}
+                className={`tabs__container${isShown ? classNameContainer : ''}`}
+              >
                 {tab.titleContent && <h2 className="tabs__container-title">{tab.titleContent}</h2>}
                 {tab.spoilerDetails &&
                   tab.spoilerDetails.map((spoiler, indexSpoiler) => {
@@ -50,7 +59,6 @@ const Tabs: FC<Props> = ({ tabs, isAnimation, activeTab = 0 }) => {
                         key={indexSpoiler}
                         title={spoiler.title}
                         paragraphs={spoiler.paragraphs}
-                        isAnimation={isAnimation}
                       />
                     );
                   })}
